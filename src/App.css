@@ -1,0 +1,81 @@
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+img.imgMain {
+    max-width: 200px;
+}
+body{
+    font-family: "Roboto","Helvetica","Arial",sans-serif
+}
+
+.pokemonBlock {
+    display: grid;
+    justify-items: center;
+    /* width: 300px; */
+    margin: 0 auto;
+    padding: 0.75rem;
+    background-color: #ffffffb3;
+    border-radius: 0.75rem;
+}
+
+p.pokemonTitle {
+    font-family: 'Pokemon Solid', sans-serif;
+    font-size: 42px;
+    text-transform: capitalize;
+    color: #FFCB05;
+    -webkit-text-stroke: 2px #3466AF;
+    margin: 0;
+    height: 88px;
+    display: inline-flex;
+    align-items: center;
+}
+
+span.details {
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 3px;
+    margin: 2px;
+    display: inline-block;
+}
+
+.arrowsBlock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 300px;
+}
+
+.baseState {
+    text-align: end;
+}
+
+img.imgEvolution {
+    width: 60% !important;
+}
+
+.statsBlock {
+    padding: 0.75rem;
+    background-color: #ffffffb3;
+    border-radius: 0.75rem;
+}
+
+.evChainBlock {
+    padding: 0.75rem;
+    background-color: #ffffffb3;
+    border-radius: 0.75rem;
+    text-align: center;
+}
+
+.evChainBlock img {
+    margin: 0 auto;
+}
+
+.detailsBlock {
+    padding: 0.75rem;
+    background-color: #ffffffb3;
+    border-radius: 0.75rem;
+}
+
+.statLine {
+    height: 5px !important;
+    border-radius: 5px;
+}
