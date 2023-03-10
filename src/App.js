@@ -30,7 +30,7 @@ function App() {
     dataPokemon?.sprites?.other["official-artwork"]?.front_default, 2, "hex", { crossOrigin: "cross-origin", quality: 10})
   
   useEffect(() => {
-    index && getApiPokemon()
+    getApiPokemon()
     getApiEvolution()
   },[index])
 
