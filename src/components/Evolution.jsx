@@ -31,6 +31,7 @@ const Evolution = (props) => {
     return data;
   };
 
+  // falta hacer esto
   const checkEvoIndex = () => {
     const evolutionUrl = dataEvolution?.chain?.evolves_to[0]?.species?.url;
     const regex = /\/([^/]+)\/?$/;
