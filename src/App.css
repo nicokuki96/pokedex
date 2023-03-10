@@ -2,17 +2,33 @@
 img.imgMain {
     max-width: 200px;
 }
+
 body{
-    font-family: "Roboto","Helvetica","Arial",sans-serif
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+     margin: 4px;
 }
 
+
+@media (min-width: 600px) {
+    .mainBlock {
+        height: 100vh;
+    }
+    body{
+        overflow: hidden;
+    }
+}
+@media (max-width: 600px) {
+    .statLine {
+        width: 220px !important;
+    }
+}
 .pokemonBlock {
     display: grid;
     justify-items: center;
     /* width: 300px; */
     margin: 0 auto;
     padding: 0.75rem;
-    background-color: #ffffffb3;
+    background-color: rgba(255, 255, 255, 0.50);
     border-radius: 0.75rem;
 }
 
@@ -49,18 +65,18 @@ span.details {
 }
 
 img.imgEvolution {
-    width: 60% !important;
+    max-width: 113px !important;
 }
 
 .statsBlock {
     padding: 0.75rem;
-    background-color: #ffffffb3;
+    background-color: rgba(255, 255, 255, 0.50);
     border-radius: 0.75rem;
 }
 
 .evChainBlock {
     padding: 0.75rem;
-    background-color: #ffffffb3;
+    background-color: rgba(255, 255, 255, 0.50);
     border-radius: 0.75rem;
     text-align: center;
 }
@@ -71,11 +87,22 @@ img.imgEvolution {
 
 .detailsBlock {
     padding: 0.75rem;
-    background-color: #ffffffb3;
+    background-color: rgba(255, 255, 255, 0.50);
     border-radius: 0.75rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 .statLine {
     height: 5px !important;
     border-radius: 5px;
+}
+
+.secondDetailC {
+    width: 325px;
+}
+
+.secondDetailCard{
+    display: flex;
+    justify-content: space-between;
 }

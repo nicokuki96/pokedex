@@ -8,7 +8,7 @@ const Details = (props) => {
   const { dataPokemon } = props;
   return (
     <Grid className="detailsBlock" container>
-      <Grid xs={12} md={5}>
+      <Grid>
         <CardContent>
           <div className="firstDetailC">
             <Typography gutterBottom variant="h6" component="div">
@@ -20,7 +20,6 @@ const Details = (props) => {
             <Typography gutterBottom variant="body2" mt={1} component="div">
               {`Weight: ${dataPokemon && dataPokemon.weight}`}
             </Typography>
-
             <Typography gutterBottom variant="body2" mt={1} component="div">
               Types
             </Typography>
@@ -35,7 +34,7 @@ const Details = (props) => {
           </div>
         </CardContent>
       </Grid>
-      <Grid xs={12} md={7}>
+      <Grid>
         <CardContent>
           <div className="secondDetailC">
             <Typography gutterBottom variant="h6" component="div">

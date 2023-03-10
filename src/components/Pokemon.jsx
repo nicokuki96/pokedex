@@ -4,7 +4,8 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 const Pokemon = (props) => {
-  const { dataPokemon, setIndex, index, data } = props;
+  const { dataPokemon, setIndex, index } = props;
+
   return (
     <div className="pokemonBlock">
       <p className="pokemonTitle">{dataPokemon && dataPokemon.name}</p>
@@ -19,7 +20,7 @@ const Pokemon = (props) => {
       />
       <div className="arrowsBlock">
         <Button
-          onClick={index > 1 && (() => setIndex(index - 1))}
+          onClick={index > 1 ? () => setIndex(index - 1) : undefined}
           size="small"
           variant="contained"
         >
