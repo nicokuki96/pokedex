@@ -35,7 +35,6 @@ const Evolution = (props) => {
     const evolutionUrl = dataEvolution?.chain?.evolves_to[0]?.species?.url;
     const regex = /\/([^/]+)\/?$/;
     const secondE = regex.exec(evolutionUrl);
-    console.log(index);
     if (dataEvolution && !lastEvolutionName && index === Number(secondE[1])) {
       setEvoI(Math.floor(index / 2));
       console.log("entra " + index, evoI);
