@@ -91,6 +91,7 @@ img.imgEvolution {
     border-radius: 0.75rem;
     display: flex;
     justify-content: space-between;
+    height: 256px;
 }
 
 .statLine {
@@ -105,4 +106,8 @@ img.imgEvolution {
 .secondDetailCard{
     display: flex;
     justify-content: space-between;
+}
+
+.secondMoves {
+    display: inline-block;
 }

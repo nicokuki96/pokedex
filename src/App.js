@@ -51,7 +51,7 @@ function App() {
           <Details dataPokemon={dataPokemon}/>
         </Grid>
         <Grid xs={12} md={6}>
-          <Evolution setEvoI={setEvoI} evoI={evoI} index={index} setIndex={setIndex} dataEvolution={dataEvolution}/>
+          <Evolution dataPokemon={dataPokemon} setEvoI={setEvoI} evoI={evoI} index={index} setIndex={setIndex} dataEvolution={dataEvolution}/>
         </Grid>
       </Grid>
     </div>

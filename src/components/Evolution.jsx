@@ -4,9 +4,10 @@ import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 import Typography from "@mui/material/Typography";
 import { useState, useEffect } from "react";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 const Evolution = (props) => {
-  const { dataEvolution, index, setEvoI, evoI } = props;
+  const { dataEvolution, index, dataPokemon, setEvoI, evoI } = props;
   const [firstDetails, setFirstDetails] = useState();
   const [evoDetails, setEvoDetails] = useState();
   const [evoDetailsLast, setEvoDetailsLast] = useState();
@@ -74,6 +75,13 @@ const Evolution = (props) => {
     }
   }, [dataEvolution]);
 
+  // Esto tira error en la consola
+  const x = 5;
+  const styleCur = {
+    transform: `translate(0px, ${x}px)`,
+    transition: "0.5s",
+  };
+
   return (
     <div className="evChainBlock">
       <Typography gutterBottom mb={2} variant="h6" component="div">
@@ -81,7 +89,8 @@ const Evolution = (props) => {
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={lastEvolutionName ? 4 : 6}>
-          <ImageListItem>
+          {firstName === dataPokemon?.name && <ArrowDropDownIcon />}
+          <ImageListItem style={firstName === dataPokemon?.name && styleCur}>
             <img
               src={firstImage}
               alt={firstName}
@@ -92,7 +101,10 @@ const Evolution = (props) => {
           </ImageListItem>
         </Grid>
         <Grid item xs={lastEvolutionName ? 4 : 6}>
-          <ImageListItem key={"item.img"}>
+          {evolutionName === dataPokemon?.name && <ArrowDropDownIcon />}
+          <ImageListItem
+            style={evolutionName === dataPokemon?.name && styleCur}
+          >
             <img
               src={evolutionPic}
               alt={evolutionName}
@@ -105,7 +117,10 @@ const Evolution = (props) => {
 
         {lastEvolutionName && (
           <Grid item xs={4}>
-            <ImageListItem key={"item.img"}>
+            {lastEvolutionName === dataPokemon?.name && <ArrowDropDownIcon />}
+            <ImageListItem
+              style={lastEvolutionName === dataPokemon?.name && styleCur}
+            >
               <img
                 src={lastEvolutionPic}
                 alt={lastEvolutionPic}
