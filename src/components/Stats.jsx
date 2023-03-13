@@ -5,26 +5,11 @@ import ListItem from "@mui/material/ListItem";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import uuid from "react-uuid";
-import LinearProgress from "@mui/material/LinearProgress";
 import Box from "@mui/material/Box";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 const Stats = (props) => {
   const { dataPokemon } = props;
-
-  function LinearProgressWithLabel(props) {
-    return (
-      <Box sx={{ display: "flex", alignItems: "center" }}>
-        <Box sx={{ width: "90%", mr: 3 }}>
-          <LinearProgress variant="determinate" {...props} />
-        </Box>
-        <Box sx={{ minWidth: 35 }}>
-          <Typography variant="body1" color="text.primary">{`${Math.round(
-            props.value
-          )}`}</Typography>
-        </Box>
-      </Box>
-    );
-  }
 
   return (
     <Grid item xs={12} md={6}>
@@ -39,13 +24,27 @@ const Stats = (props) => {
         </Typography>
         {dataPokemon &&
           dataPokemon.stats.map((item) => (
-            <ListItem key={uuid()}>
+            <ListItem className="statsName" key={uuid()}>
               <ListItemText primary={item.stat.name} />
-              <Box sx={{ width: "80%" }}>
-                <LinearProgressWithLabel
-                  className="statLine"
-                  value={item.base_stat}
+              <Box className="progressStats" sx={{ width: "80%" }}>
+                <ProgressBar
+                  completed={item.base_stat.toString()}
+                  maxCompleted={150}
+                  customLabel={" "}
+                  height={"10px"}
+                  bgColor={"#1976D2"}
+                  baseBgColor={"#7E7D7A"}
                 />
+              </Box>
+              <Box className="numberStat" sx={{ minWidth: 35 }}>
+                <Typography
+                  align="center"
+                  ml={2}
+                  variant="h7"
+                  color="text.primary"
+                >
+                  {item.base_stat}
+                </Typography>
               </Box>
             </ListItem>
           ))}

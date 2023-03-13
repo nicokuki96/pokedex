@@ -13,9 +13,11 @@ body{
     .mainBlock {
         height: 100vh;
     }
-    body{
-        overflow: hidden;
+
+    .detailsBlock {
+        justify-content: space-around !important;
     }
+    
 }
 @media (max-width: 600px) {
     .statLine {
@@ -24,15 +26,24 @@ body{
     .detailsBlock {
         height: 410px !important;
     }
+    .statsName {
+        display: block !important;
+    }
     
+    .numberStat {
+        display: inline-block;
+    }
+    
+    .progressStats {
+        display: inline-block;
+    }
 }
 .pokemonBlock {
     display: grid;
     justify-items: center;
-    /* width: 300px; */
     margin: 0 auto;
     padding: 0.75rem;
-    background-color: rgba(255, 255, 255, 0.50);
+    background-color: rgba(255, 255, 255, 0.70);
     border-radius: 0.75rem;
 }
 
@@ -74,13 +85,13 @@ img.imgEvolution {
 
 .statsBlock {
     padding: 0.75rem;
-    background-color: rgba(255, 255, 255, 0.50);
+    background-color: rgba(255, 255, 255, 0.70);
     border-radius: 0.75rem;
 }
 
 .evChainBlock {
     padding: 0.75rem;
-    background-color: rgba(255, 255, 255, 0.50);
+    background-color: rgba(255, 255, 255, 0.70);
     border-radius: 0.75rem;
     text-align: center;
 }
@@ -91,7 +102,7 @@ img.imgEvolution {
 
 .detailsBlock {
     padding: 0.75rem;
-    background-color: rgba(255, 255, 255, 0.50);
+    background-color: rgba(255, 255, 255, 0.70);
     border-radius: 0.75rem;
     display: flex;
     justify-content: space-between;
@@ -119,4 +130,12 @@ img.imgEvolution {
 .cardDetailC {
     display: flex;
     height: 191px;
+}
+
+.selected .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active.Mui-active {
+    color: rgba(0, 0, 0, 0.38)
+}
+
+.hideBlock{
+    display: none;
 }

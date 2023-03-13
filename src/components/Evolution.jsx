@@ -1,13 +1,15 @@
 import React from "react";
-import Grid from "@mui/material/Grid";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 import Typography from "@mui/material/Typography";
 import { useState, useEffect } from "react";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import Box from "@mui/material/Box";
+import Stepper from "@mui/material/Stepper";
+import Step from "@mui/material/Step";
+import StepLabel from "@mui/material/StepLabel";
 
 const Evolution = (props) => {
-  const { dataEvolution, index, dataPokemon, setEvoI, evoI } = props;
+  const { dataEvolution, index, dataPokemon } = props;
   const [firstDetails, setFirstDetails] = useState();
   const [evoDetails, setEvoDetails] = useState();
   const [evoDetailsLast, setEvoDetailsLast] = useState();
@@ -38,8 +40,7 @@ const Evolution = (props) => {
     const regex = /\/([^/]+)\/?$/;
     const secondE = regex.exec(evolutionUrl);
     if (dataEvolution && !lastEvolutionName && index === Number(secondE[1])) {
-      setEvoI(Math.floor(index / 2));
-      console.log("entra " + index, evoI);
+      console.log("entra " + index);
     }
   };
 
@@ -77,10 +78,16 @@ const Evolution = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataEvolution]);
 
-  // Esto tira error en la consola
-  const styleCur = {
-    transform: `translate(0px, 5px)`,
-    transition: "0.5s",
+  const selectedPoke = () => {
+    if (firstName === dataPokemon?.name) {
+      return 1;
+    }
+    if (evolutionName === dataPokemon?.name) {
+      return 2;
+    }
+    if (lastEvolutionName === dataPokemon?.name) {
+      return 3;
+    }
   };
 
   return (
@@ -88,51 +95,54 @@ const Evolution = (props) => {
       <Typography gutterBottom mb={2} variant="h6" component="div">
         Evolution Chain
       </Typography>
-      <Grid container spacing={2}>
-        <Grid item xs={lastEvolutionName ? 4 : 6}>
-          {firstName === dataPokemon?.name && <ArrowDropDownIcon />}
-          <ImageListItem style={firstName === dataPokemon?.name && styleCur}>
-            <img
-              src={firstImage}
-              alt={firstName}
-              loading="lazy"
-              className="imgEvolution"
-            />
-            <ImageListItemBar title={firstName} position="below" />
-          </ImageListItem>
-        </Grid>
-        <Grid item xs={lastEvolutionName ? 4 : 6}>
-          {evolutionName === dataPokemon?.name && <ArrowDropDownIcon />}
-          <ImageListItem
-            style={evolutionName === dataPokemon?.name && styleCur}
-          >
-            <img
-              src={evolutionPic}
-              alt={evolutionName}
-              loading="lazy"
-              className="imgEvolution"
-            />
-            <ImageListItemBar title={evolutionName} position="below" />
-          </ImageListItem>
-        </Grid>
-
-        {lastEvolutionName && (
-          <Grid item xs={4}>
-            {lastEvolutionName === dataPokemon?.name && <ArrowDropDownIcon />}
-            <ImageListItem
-              style={lastEvolutionName === dataPokemon?.name && styleCur}
-            >
-              <img
-                src={lastEvolutionPic}
-                alt={lastEvolutionPic}
-                loading="lazy"
-                className="imgEvolution"
-              />
-              <ImageListItemBar title={lastEvolutionName} position="below" />
-            </ImageListItem>
-          </Grid>
-        )}
-      </Grid>
+      <Box sx={{ width: "100%" }}>
+        <Stepper
+          className="selected"
+          activeStep={selectedPoke()}
+          alternativeLabel
+        >
+          <Step>
+            <StepLabel>
+              <ImageListItem>
+                <img
+                  src={firstImage}
+                  alt={firstName}
+                  loading="lazy"
+                  className="imgEvolution"
+                />
+                <ImageListItemBar title={firstName} position="below" />
+              </ImageListItem>
+            </StepLabel>
+          </Step>
+          <Step>
+            <StepLabel>
+              <ImageListItem>
+                <img
+                  src={evolutionPic}
+                  alt={evolutionName}
+                  loading="lazy"
+                  className="imgEvolution"
+                />
+                <ImageListItemBar title={evolutionName} position="below" />
+              </ImageListItem>
+            </StepLabel>
+          </Step>
+          {/* si lo pongo con && tira un warning */}
+          <Step className={!lastEvolutionName ? "hideBlock" : ""}>
+            <StepLabel>
+              <ImageListItem>
+                <img
+                  src={lastEvolutionPic}
+                  alt={lastEvolutionPic}
+                  loading="lazy"
+                  className="imgEvolution"
+                />
+                <ImageListItemBar title={lastEvolutionName} position="below" />
+              </ImageListItem>
+            </StepLabel>
+          </Step>
+        </Stepper>
+      </Box>
     </div>
   );
 };

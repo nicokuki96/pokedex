@@ -11,7 +11,6 @@ function App() {
   const [index ,setIndex] = useState(1)
   const [dataPokemon ,setDataPokemon] = useState()
   const [dataEvolution ,setDataEvolution] = useState()
-  const [evoI, setEvoI] = useState();
 
   const getApiPokemon = async () => {
     const request = await fetch(`https://pokeapi.co/api/v2/pokemon/${index}`)
@@ -19,8 +18,8 @@ function App() {
     setDataPokemon(data)
   }
   const getApiEvolution = async () => {
-    let evo = Math.ceil(index/3)
-    const request = await fetch(`https://pokeapi.co/api/v2/evolution-chain/${evo}/`)
+    let evolutionIndex = Math.ceil(index/3)
+    const request = await fetch(`https://pokeapi.co/api/v2/evolution-chain/${evolutionIndex}/`)
     const data = await request.json()
     setDataEvolution(data)
   }
@@ -53,7 +52,7 @@ function App() {
           <Details dataPokemon={dataPokemon}/>
         </Grid>
         <Grid xs={12} md={6}>
-          <Evolution dataPokemon={dataPokemon} setEvoI={setEvoI} evoI={evoI} index={index} setIndex={setIndex} dataEvolution={dataEvolution}/>
+          <Evolution dataPokemon={dataPokemon} index={index} dataEvolution={dataEvolution}/>
         </Grid>
       </Grid>
     </div>
