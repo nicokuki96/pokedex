@@ -32,6 +32,8 @@ function App() {
   useEffect(() => {
     getApiPokemon()
     getApiEvolution()
+    
+   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[index])
 
   const mystyle = {

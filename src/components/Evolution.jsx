@@ -73,12 +73,13 @@ const Evolution = (props) => {
           console.log("getLast", err);
         });
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataEvolution]);
 
   // Esto tira error en la consola
-  const x = 5;
   const styleCur = {
-    transform: `translate(0px, ${x}px)`,
+    transform: `translate(0px, 5px)`,
     transition: "0.5s",
   };
 

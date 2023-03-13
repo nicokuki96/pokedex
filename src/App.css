@@ -21,6 +21,10 @@ body{
     .statLine {
         width: 220px !important;
     }
+    .detailsBlock {
+        height: 410px !important;
+    }
+    
 }
 .pokemonBlock {
     display: grid;
@@ -44,7 +48,7 @@ p.pokemonTitle {
     align-items: center;
 }
 
-span.details {
+.details {
     border: 1px solid;
     padding: 5px;
     border-radius: 3px;
@@ -91,7 +95,6 @@ img.imgEvolution {
     border-radius: 0.75rem;
     display: flex;
     justify-content: space-between;
-    height: 256px;
 }
 
 .statLine {
@@ -110,4 +113,10 @@ img.imgEvolution {
 
 .secondMoves {
     display: inline-block;
+    margin: 3px;
+}
+
+.cardDetailC {
+    display: flex;
+    height: 191px;
 }
