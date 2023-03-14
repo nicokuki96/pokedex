@@ -9,7 +9,7 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 
 const Evolution = (props) => {
-  const { dataEvolution, index, dataPokemon } = props;
+  const { dataEvolution, dataPokemon } = props;
   const [firstDetails, setFirstDetails] = useState();
   const [evoDetails, setEvoDetails] = useState();
   const [evoDetailsLast, setEvoDetailsLast] = useState();
@@ -34,16 +34,6 @@ const Evolution = (props) => {
     return data;
   };
 
-  // falta hacer esto
-  const checkEvoIndex = () => {
-    const evolutionUrl = dataEvolution?.chain?.evolves_to[0]?.species?.url;
-    const regex = /\/([^/]+)\/?$/;
-    const secondE = regex.exec(evolutionUrl);
-    if (dataEvolution && !lastEvolutionName && index === Number(secondE[1])) {
-      console.log("entra " + index);
-    }
-  };
-
   useEffect(() => {
     if (firstName) {
       getApiImageEvolution(firstName)
@@ -58,7 +48,6 @@ const Evolution = (props) => {
       getApiImageEvolution(evolutionName)
         .then((data) => {
           setEvoDetails(data);
-          checkEvoIndex();
         })
         .catch((err) => {
           console.log("getAPI", err);

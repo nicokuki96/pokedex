@@ -12,6 +12,8 @@ function App() {
   const [index ,setIndex] = useState(1)
   const [dataPokemon ,setDataPokemon] = useState()
   const [dataEvolution ,setDataEvolution] = useState()
+  const [nextEvolution ,setNextEvolution] = useState([])
+  const [indexEvolution ,setIndexEvolution] = useState(1)
 
   const getApiPokemon = async () => {
     const request = await fetch(`https://pokeapi.co/api/v2/pokemon/${index}`)
@@ -19,10 +21,23 @@ function App() {
     setDataPokemon(data)
   }
   const getApiEvolution = async () => {
-    let evolutionIndex = Math.ceil(index/3)
-    const request = await fetch(`https://pokeapi.co/api/v2/evolution-chain/${evolutionIndex}/`)
+    // let evolutionIndex = Math.ceil(index/3)
+    const request = await fetch(`https://pokeapi.co/api/v2/evolution-chain/${indexEvolution}/`)
     const data = await request.json()
     setDataEvolution(data)
+    const firstName = dataEvolution?.chain.species.name;
+    const evolutionName = dataEvolution?.chain.evolves_to[0]?.species.name;
+    const lastEvolutionName = dataEvolution?.chain.evolves_to[0].evolves_to[0]?.species.name;
+    if(firstName && evolutionName && lastEvolutionName){
+      // setNextEvolution([...nextEvolution, firstName, evolutionName ,lastEvolutionName])
+      nextEvolution.push(firstName, evolutionName, lastEvolutionName);
+      const lastElement = nextEvolution[nextEvolution.length - 1]
+      if(lastElement === dataPokemon.name) {
+        console.log("entro")
+        setIndexEvolution(indexEvolution + 1)
+      }
+      if(nextEvolution.includes(firstName , evolutionName , lastEvolutionName)) return
+    }
   }
 
   // Thief color library
