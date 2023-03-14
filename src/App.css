@@ -17,6 +17,10 @@ body{
     .detailsBlock {
         justify-content: space-around !important;
     }
+    .menu {
+        display: none !important;
+    }
+    
     
 }
 @media (max-width: 600px) {
@@ -37,7 +41,36 @@ body{
     .progressStats {
         display: inline-block;
     }
+    .menu .arrowsBlock {
+        margin-left: 35px;
+        margin-top: 5px;
+        width: 190px !important;
+    }
+    .menu .arrowsBlock button{
+        background-color: #FFCB05;
+    }
+    .menu .nameMobile{
+        width: 145px;
+    }
+    .menuMobile .arrowsBlock {
+        justify-content: flex-end;
+        margin-top: 3px;
+    }
+    .menuMobile {
+        background-color: #272727;
+    }
+    .menuMobile .indexBlock {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
 }
+
+.mainBlock {
+    top: 4px;
+    position: absolute;
+    width: 100%;
+}
+
 .pokemonBlock {
     display: grid;
     justify-items: center;

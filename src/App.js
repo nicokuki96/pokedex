@@ -6,6 +6,7 @@ import Evolution from './components/Evolution';
 import Details from './components/Details';
 import Stats from './components/Stats';
 import { usePalette } from "color-thief-react";
+import Menu from './components/Menu';
 
 function App() {
   const [index ,setIndex] = useState(1)
@@ -41,7 +42,8 @@ function App() {
 
   return (
     <div className="App">
-      <Grid className="mainBlock" style={mystyle} container spacing={1}>
+      <Menu setIndex={setIndex} index={index} dataPokemon={dataPokemon} />
+      <Grid className="mainBlock" dataPokemon={dataPokemon} style={mystyle} container spacing={1}>
         <Grid xs={12} md={4}>
             <Pokemon data={data} index={index} setIndex={setIndex} dataPokemon={dataPokemon}/>
         </Grid>
