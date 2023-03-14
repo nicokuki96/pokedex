@@ -20,8 +20,9 @@ body{
     .menu {
         display: none !important;
     }
-    
-    
+   .menuMobile {
+        display: none;
+    }
 }
 @media (max-width: 600px) {
     .statLine {

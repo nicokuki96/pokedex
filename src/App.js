@@ -28,15 +28,24 @@ function App() {
     const firstName = dataEvolution?.chain.species.name;
     const evolutionName = dataEvolution?.chain.evolves_to[0]?.species.name;
     const lastEvolutionName = dataEvolution?.chain.evolves_to[0].evolves_to[0]?.species.name;
-    if(firstName && evolutionName && lastEvolutionName){
-      // setNextEvolution([...nextEvolution, firstName, evolutionName ,lastEvolutionName])
-      nextEvolution.push(firstName, evolutionName, lastEvolutionName);
-      const lastElement = nextEvolution[nextEvolution.length - 1]
+    if(evolutionName && lastEvolutionName){
+      setNextEvolution([ evolutionName ,lastEvolutionName])
+      // nextEvolution.push(firstName, evolutionName, lastEvolutionName);
+      const lastElement = nextEvolution[nextEvolution.length - 2]
+      console.log(nextEvolution)
       if(lastElement === dataPokemon.name) {
-        console.log("entro")
+        console.log("3 evolution")
         setIndexEvolution(indexEvolution + 1)
       }
-      if(nextEvolution.includes(firstName , evolutionName , lastEvolutionName)) return
+    }
+    else if(evolutionName && !lastEvolutionName){
+      setNextEvolution([evolutionName])
+      const beforeLastElement = nextEvolution[nextEvolution.length - 1]
+      console.log(beforeLastElement)
+      if(beforeLastElement === dataPokemon.name) {
+        console.log("2 evolution")
+        setIndexEvolution(indexEvolution + 1)
+      }
     }
   }
 
